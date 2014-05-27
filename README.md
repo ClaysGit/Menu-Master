@@ -8,7 +8,7 @@ Design
 
 Three main features will be tied together by a Windows Service.
 
-Google Calendar will provide the functionality for tracking meal plans and shopping trips. Users are able to see what is upcoming and make their own adjustments easily, from anywhere they can access their Google account.
+Google Calendar will provide the functionality for tracking meal plans. Users are able to see what is upcoming and make their own adjustments easily, from anywhere they can access their Google account.
 
 Evernote (may change) provides an effective service for managing lists. Users can access Evernote easily from a variety of places, notably their smartphones, and the program will make sure nothing is forgotten from the list.
 
@@ -31,10 +31,19 @@ The underlying service is responsible for tying the various components together.
 
 TODO: The best way to manage a shopping list needs some fleshing out. Not sure if Evernote is the right choice yet.
 
-Technical Components
+Technology List
 -------
 
-
+Microsoft Visual Studio Express; Any version that can create C# classes and edit MVC pages and provides a simple database framework. Express 2013 For Web might be good enough: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+Google Calendar SDK: https://developers.google.com/google-apps/calendar/
+Evernote API: http://dev.evernote.com/doc/
 
 Incremental Steps
 -------
+
+**Milestone 1: Basic Windows Service**
+* Read up on how to create and run a service. You can see it being installed, and whether it's started or stopped in the window's services tool
+	* When Googling for any sort of Microsoft-related development technology, I highly recommend looking for results from MSDN.
+	* Type "services" into the start menu to bring up the tool.
+* Read about Notification Icons. Have the Service present a Notification Icon that can shut it down.
+
