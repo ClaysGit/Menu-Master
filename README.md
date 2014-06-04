@@ -41,7 +41,21 @@ Evernote API: http://dev.evernote.com/doc/
 Incremental Steps
 -------
 
-**Milestone 1: Basic Windows Service**
+**Milestone 1: Experimental Stage**
+* Create a visual studio solution. Check it in to this GitHub repository.
+	* Create a simple command line executable that says "Hello World". It's tradition.
+	* Anytime ANYTHING works or looks good, check it in to GitHub.
+	* Read about Git Branches! Make sure you keep the master branch in a good working place, at all times. Create branches with names like "AddCalendarExecutable" or "CalendarExecutableCreatesEvents", and do your development in there, checking in often. When the purpose of the branch has been fulfilled, and everything is in good working order, check it back into the master branch.
+* Make sure you have a dummy Google Account to do Development things with.
+* Create a command line executable that will do something, anything with a Google calendar.
+	* There should be TWO projects; one contains a "Class Library," with all the code to interact with Google. The other is the command line executable, and it ONLY creates the main object from the class library, and calls functions on that object. It should provide no input to those functions, and receive no output.
+	* This makes it really easy to reuse the Class Library code in something else, like a windows service, while keeping the development of the library fast and simple.
+* After you can do something petty, build independent functions for Creating a event on a specific calendar and day, reading events on a specific calendar and day, and deleting events on a specific calendar and day.
+* At this point, you're probably hard-coding in some Google Account info, and calendar info. Instead, have the executable read in an XML file, and pass things like Username, Password, Calendar name, Day, etc in to the library.
+
+
+
+**Milestone Infinity: Basic Windows Service**
 * Read up on how to create and run a service. You can see it being installed, and whether it's started or stopped in the window's services tool
 	* When Googling for any sort of Microsoft-related development technology, I highly recommend looking for results from MSDN.
 	* Type "services" into the start menu to bring up the tool.
