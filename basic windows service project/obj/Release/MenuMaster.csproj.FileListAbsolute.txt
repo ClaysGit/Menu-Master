@@ -1,0 +1,9 @@
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\bin\Release\MenuMaster.exe.config
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\bin\Release\MenuMaster.exe
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\bin\Release\MenuMaster.pdb
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\obj\Release\MenuMaster.csprojResolveAssemblyReference.cache
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\obj\Release\MenuMaster.ProjectInstaller.resources
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\obj\Release\MenuMaster.MenuMaster.resources
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\obj\Release\MenuMaster.csproj.GenerateResource.Cache
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\obj\Release\MenuMaster.exe
+\\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\obj\Release\MenuMaster.pdb

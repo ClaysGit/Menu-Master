@@ -1,0 +1,21 @@
+﻿Installing assembly 'C:\VS Projects\MenuMaster\bin\Release\MenuMaster.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\VS Projects\MenuMaster\bin\Release\MenuMaster.InstallLog
+   assemblypath = C:\VS Projects\MenuMaster\bin\Release\MenuMaster.exe
+Installing service MenuMaster...
+Service MenuMaster has been successfully installed.
+Creating EventLog source MenuMaster in log Application...
+Committing assembly 'C:\VS Projects\MenuMaster\bin\Release\MenuMaster.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\VS Projects\MenuMaster\bin\Release\MenuMaster.InstallLog
+   assemblypath = C:\VS Projects\MenuMaster\bin\Release\MenuMaster.exe
+Uninstalling assembly 'C:\VS Projects\MenuMaster\bin\Release\menumaster.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\VS Projects\MenuMaster\bin\Release\menumaster.InstallLog
+   assemblypath = C:\VS Projects\MenuMaster\bin\Release\menumaster.exe
+Removing EventLog source MenuMaster.
+Service MenuMaster is being removed from the system...
+Service MenuMaster was successfully removed from the system.
