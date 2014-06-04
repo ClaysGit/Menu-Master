@@ -46,6 +46,7 @@ Incremental Steps
 	* Create a simple command line executable that says "Hello World". It's tradition.
 	* Anytime ANYTHING works or looks good, check it in to GitHub.
 	* Read about Git Branches! Make sure you keep the master branch in a good working place, at all times. Create branches with names like "AddCalendarExecutable" or "CalendarExecutableCreatesEvents", and do your development in there, checking in often. When the purpose of the branch has been fulfilled, and everything is in good working order, check it back into the master branch.
+	* Make sure you Git Push up your work periodically. It'll be helpful for me to see progress.
 * Make sure you have a dummy Google Account to do Development things with.
 * Create a command line executable that will do something, anything with a Google calendar.
 	* There should be TWO projects; one contains a "Class Library," with all the code to interact with Google. The other is the command line executable, and it ONLY creates the main object from the class library, and calls functions on that object. It should provide no input to those functions, and receive no output.
