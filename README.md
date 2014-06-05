@@ -73,3 +73,8 @@ Incremental Steps
 	* Type "services" into the start menu to bring up the tool.
 * Read about Notification Icons. Have the Service present a Notification Icon that can shut it down.
 
+**Milestone 4: The Shopping List API**
+
+**Milestone 5: Adding desired functionality to experimental components**
+
+**Milestone 6: Tying it together in the windows service**
