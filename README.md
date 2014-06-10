@@ -41,7 +41,7 @@ Evernote API: http://dev.evernote.com/doc/
 Incremental Steps
 -------
 
-**Milestone 1: Experimental Stage**
+**Milestone 1: Google API and Experiments**
 * Create a visual studio solution. Check it in to this GitHub repository.
 	* Create a simple command line executable that says "Hello World". It's tradition.
 	* Anytime ANYTHING works or looks good, check it in to GitHub.
@@ -54,11 +54,27 @@ Incremental Steps
 * After you can do something petty, build independent functions for Creating a event on a specific calendar and day, reading events on a specific calendar and day, and deleting events on a specific calendar and day.
 * At this point, you're probably hard-coding in some Google Account info, and calendar info. Instead, have the executable read in an XML file, and pass things like Username, Password, Calendar name, Day, etc in to the library.
 
+**Milestone 2: The User Interface**
+* Add a project to your solution called "CalendarUI". It's type should be "ASP.NET MVC 4 Web Application". When it asks, make it a Blank application. The new project will be full of files and folders that support website development.
+* There are three main components to these web applications: Models, Views, and Controllers.
+	* Models control and define data. They might connect to a database, perform authentication, or just host some definitions for what data will look like.
+	* Views are files that are compiled to HTML. The actual look of a web page is defined by the View.
+	* Controllers are the middle man. A URL is parsed by the webserver, and it uses the URL to identify a function in a controller that it should call. The Controller then returns View and Model information that are combined to create a web page.
+	* For example, the default way a webserver parses URLs would cause "mywebsite.com/Default/Index" to find the "DefaultController.cs", and call the "Index" function on it. The Index function calls code in the Model section to see if a user is logged in. When they're not, it returns a View that renders to a login page.
+* Add a web page to the blank project. Start by making a Controller (in the Controllers folder) called HomeController.cs. It will by default have an Index function, which returns "View()". "View()" can be called with a name of a View (ie View("Index")), but calling it without specifying a name just uses the name of the function, which is already "Index".
+* Next you need a View called Index...and it needs to be in the Views\Home folder. Create folders in the Views folder that match the name of the controller that references them; that's how it expects to find those files. The default options for adding a View are fine...your web application doesn't have a "layout" page yet, but you can add one later.
+	* The View will have a chunk that sets the ViewBag.Title for the page. If you had a layout page, the layout would reference that variable to determine what to set the title. Currently that setting has no impact though.
+* Create some more projects, using non-Blank settings. Look through the sample code that come with these projects and get a feel for how these things look and what they can do.
 
 
-**Milestone Infinity: Basic Windows Service**
+**Milestone 3: Basic Windows Service**
 * Read up on how to create and run a service. You can see it being installed, and whether it's started or stopped in the window's services tool
 	* When Googling for any sort of Microsoft-related development technology, I highly recommend looking for results from MSDN.
 	* Type "services" into the start menu to bring up the tool.
 * Read about Notification Icons. Have the Service present a Notification Icon that can shut it down.
 
+**Milestone 4: The Shopping List API**
+
+**Milestone 5: Adding desired functionality to experimental components**
+
+**Milestone 6: Tying it together in the windows service**
