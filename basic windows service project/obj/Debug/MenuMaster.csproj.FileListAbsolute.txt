@@ -1,1 +1,2 @@
 \\lib-files\profiles\j6thomas1\documents\visual studio 2013\Projects\MenuMaster\MenuMaster\bin\Debug\MenuMaster.exe.config
+D:\GitHub\Repos\Menu-Master\basic windows service project\bin\Debug\MenuMaster.exe.config

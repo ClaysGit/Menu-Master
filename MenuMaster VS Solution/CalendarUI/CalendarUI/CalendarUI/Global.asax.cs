@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using CalendarUI.Models;
 
 namespace CalendarUI
 {
@@ -19,6 +21,23 @@ namespace CalendarUI
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+    }
+
+    class UsersInitializer : DropCreateDatabaseIfModelChanges<UserDBContext>
+    {
+        protected override void Seed(UserDBContext context)
+        {
+            new List<User>
+            {
+                new User
+                {
+                    name = "Joshua Thomas",
+                    dateOfBirth = new DateTime(1988, 2, 16),
+                    ID = 1
+                }
+            }.ForEach(b => context.Users.Add(b));
+            base.Seed(context);
         }
     }
 }
