@@ -31,12 +31,36 @@ namespace MenuMaster
     //also contains a number of meals. 
     class MealDay
     {
+        private List<Meal> meals;
+        private DayType type;
+        private string dayName;
 
+        public List<Meal> Meals
+        {
+            get { return meals;}
+            set { meals = value;}
+        }
+        
+        public DayType Type
+        {
+            get { return type;}
+            set { type = value;}
+        }
+
+        public string DayName
+        {
+            get { return dayName;}
+            set { dayName = value;}
+        }
     }
 
     class Meal
     {
-
+        private string name;
+        private MealType type;
+        private Recipe recipe;
+        private DateTime time;
+        
     }
 
     class DayType
