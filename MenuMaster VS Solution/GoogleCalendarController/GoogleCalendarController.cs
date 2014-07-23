@@ -30,7 +30,7 @@ namespace GoogleCalendarController
             {
                 Application.EnableVisualStyles();
                 Application.Run(tokenForm);
-                token = tokenForm.OAuthToken;
+                token = tokenForm.token;
             }
 
             //Create the Google Service object for Google Calendars

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OAuthManager.cs" />
     <Compile Include="OAuthTokenManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
