@@ -20,18 +20,14 @@ namespace GoogleCalendarController
     {
         string token;
         CalendarService service;
+        OAuthTokenManager tokenManager;
 
         // This is the initializer for our controller. It creates the main CalendarService, from which most of the magic happens
         // this also fires up our Open Auth Manager, which logs the user into their Google account and generates an access token
         public googleCalendarController()
         {
-            //Use the OAuthManager form to get an OAuth token...
-            using (var tokenForm = new OAuthTokenManagerForm())
-            {
-                Application.EnableVisualStyles();
-                Application.Run(tokenForm);
-                token = tokenForm.token;
-            }
+            tokenManager = new OAuthTokenManager();
+            token = tokenManager.OAuthAccessToken;
 
             //Create the Google Service object for Google Calendars
             service = new CalendarService(new BaseClientService.Initializer()

@@ -5,6 +5,10 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 
+using GoogleCalendarController;
+
+using Google.Apis.Calendar.v3;
+
 namespace MenuMaster
 {
     static class Program
