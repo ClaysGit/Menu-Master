@@ -24,11 +24,21 @@ namespace OAuthManager
     {
         public OAuthTokenManager()
         {
-            // Check if we already have a refresh token, and then check if it works.
+            // Try to load a refresh token from an earlier instance. If that fails, run user authentication and save
+            // the info for next time.
+            if (!Load())
+            {
+                GetUserAuthentication();
+                Save();
+            }
+            else // If we successfully loaded a refresh token, use it to get an auth token
+                GoogleCodeToToken(null);
+        }
 
-
-            // instantiate our form, run it, and then wait for it to finish. Generates a dictionary with full
-            // response data from Google, most importantly including the Authentication Token and Refresh Token
+        // Load up our webform, which will guide the user through the authentication process with Google. Hopefully
+        // get an Auth token and a Refresh token.
+        private void GetUserAuthentication()
+        {
             using (var tokenForm = new OAuthTokenManagerForm())
             {
                 Application.EnableVisualStyles();
@@ -38,6 +48,8 @@ namespace OAuthManager
 
             Debug.WriteLine("Access Token: " + OAuthAccessToken);
             Debug.WriteLine("Refresh Token: " + OAuthRefreshToken);
+
+            Save();
         }
 
         // Placeholder save and load functions for our refresh token.
@@ -47,16 +59,34 @@ namespace OAuthManager
             File.WriteAllLines("appdata.txt", text);
         }
 
-        public void Load()
+        // See if the file exists, then pull the first line, which should be our OAuth Refresh Token. If it isn't
+        // for whatever reason, return false (failed to load), otherwise return true.
+        public bool Load()
         {
-            string[] text = File.ReadAllLines("appdata.txt");
-            OAuthRefreshToken = text[0];
+            if (File.Exists("appdata.txt"))
+            {
+                string[] text = File.ReadAllLines("appdata.txt");
+
+                if (text[0] == null)
+                {
+                    Debug.WriteLine("Failed to load appdata.txt");
+                    return false;
+                }
+                else
+                {
+                    Debug.WriteLine("Loaded successfully");
+                    OAuthRefreshToken = text[0];
+                    return true;
+                }
+            }
+            else
+                return false;
         }
 
+        // Load up our webform, which will guide the user through authenticating with Google. Generates a code if 
+        // successful, use that code to exchange for our auth tokens.
         private void GetUserAuthorization()
         {
-            // instantiate our form, run it, and then wait for it to finish. Generates a code which we can exchange
-            // for the requested access rights, in the form of an Access and a Refresh token.
             using (var tokenForm = new OAuthTokenManagerForm())
             {
                 Application.EnableVisualStyles();
@@ -73,11 +103,22 @@ namespace OAuthManager
             {
                 // Build an object containing our request
                 var data = new NameValueCollection();
-                data["code"] = code;
                 data["client_id"] = Globals.MenuMasterClientID;
                 data["client_secret"] = Globals.MenuMasterClientSecret;
-                data["redirect_uri"] = Globals.ManualRedirectUri;
-                data["grant_type"] = Globals.GrantType;
+                
+                // If no authorization code is provided, use the refresh token "mode" instead
+                if (code == null)
+                {
+                    data["grant_type"] = Globals.RefreshGrantType;
+                    data["refresh_token"] = OAuthRefreshToken;
+                }
+
+                else
+                {
+                    data["grant_type"] = Globals.AuthGrantType;
+                    data["code"] = code;
+                    data["redirect_uri"] = Globals.ManualRedirectUri;
+                }
 
                 // POST the request to google, getting a response, and convert that response to a convenient
                 // dictionary format.
@@ -85,9 +126,11 @@ namespace OAuthManager
                 var responseJson = Encoding.ASCII.GetString(responseBytes);
 
                 responseKeyValueSets = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseJson);
-
+                
+                // Obviously, we don't get a refresh token if we were using one to GET this info!
+                if (code != null)
+                    OAuthRefreshToken = responseKeyValueSets["refresh_token"];
                 OAuthAccessToken = responseKeyValueSets["access_token"];
-                OAuthRefreshToken = responseKeyValueSets["refresh_token"];
             }
         }
 
