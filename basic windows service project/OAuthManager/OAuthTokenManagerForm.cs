@@ -75,7 +75,7 @@ namespace OAuthManager
         //Hard coded values
         public const string ResponseType = "code";
         public const string AuthGrantType = "authorization_code";
-        public const string RefreshGrantType = "refresh_code";
+        public const string RefreshGrantType = "refresh_token";
         public const string AccessType = "offline";
     }
 }

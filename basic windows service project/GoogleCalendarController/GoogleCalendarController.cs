@@ -115,6 +115,7 @@ namespace GoogleCalendarController
             // Craft our request for a specific Calendar object, authorize, and execute
             var getRequest = service.Calendars.Get(ID);
             getRequest.OauthToken = token;
+
             return getRequest.Execute();
         }
     }

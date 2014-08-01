@@ -55,8 +55,7 @@ namespace OAuthManager
         // Placeholder save and load functions for our refresh token.
         public void Save()
         {
-            string[] text = {OAuthRefreshToken};
-            File.WriteAllLines("appdata.txt", text);
+            File.WriteAllText("appdata.txt", OAuthRefreshToken);
         }
 
         // See if the file exists, then pull the first line, which should be our OAuth Refresh Token. If it isn't
@@ -66,8 +65,7 @@ namespace OAuthManager
             if (File.Exists("appdata.txt"))
             {
                 string[] text = File.ReadAllLines("appdata.txt");
-
-                if (text[0] == null)
+                if (text.Length == 0)
                 {
                     Debug.WriteLine("Failed to load appdata.txt");
                     return false;
@@ -105,7 +103,7 @@ namespace OAuthManager
                 var data = new NameValueCollection();
                 data["client_id"] = Globals.MenuMasterClientID;
                 data["client_secret"] = Globals.MenuMasterClientSecret;
-                
+
                 // If no authorization code is provided, use the refresh token "mode" instead
                 if (code == null)
                 {
