@@ -116,6 +116,16 @@
       <DependentUpon>Service.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="GoogleCalendarController\GoogleCalendarController.csproj">
+      <Project>{ffb70ebb-ad70-425b-ba6f-9cd35f35d454}</Project>
+      <Name>GoogleCalendarController</Name>
+    </ProjectReference>
+    <ProjectReference Include="MenuMaster\MenuMaster.csproj">
+      <Project>{f107085b-864f-4a72-b29b-50626438b5d9}</Project>
+      <Name>MenuMaster</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

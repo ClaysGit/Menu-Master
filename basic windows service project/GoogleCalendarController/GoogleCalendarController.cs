@@ -67,19 +67,19 @@ namespace GoogleCalendarController
             return calInsertRequest.Execute();
         }
         // Generates a new Event object
-        public Event newEvent(string summary, string location, string calendarID)
+        public Event newEvent(string summary, string location, string calendarID, DateTime start, DateTime end)
         {
             // Create a new event and set some parameters
             Event newEvent = new Event();
 
-            EventDateTime start = new EventDateTime();
-            EventDateTime end = new EventDateTime();
+            EventDateTime eventStart = new EventDateTime();
+            EventDateTime eventEnd = new EventDateTime();
 
-            start.DateTimeRaw = "2015-01-01T00:00:00-05:00";
-            end.DateTimeRaw = "2015-01-01T12:00:00-05:00";
+            eventStart.DateTime = start;
+            eventEnd.DateTime = end;
 
-            newEvent.Start = start;
-            newEvent.End = end;
+            newEvent.Start = eventStart;
+            newEvent.End = eventEnd;
 
             newEvent.Summary = summary;
             newEvent.Location = location;
