@@ -81,6 +81,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.cs" />
+    <Compile Include="Definitions.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="MealPlans.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipes.cs" />

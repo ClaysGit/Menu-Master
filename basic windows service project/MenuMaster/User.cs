@@ -54,6 +54,7 @@ namespace MenuMaster
 
         }
 
+        // A dummy method, to show our program is properly communicating with Google.
         public void addHourlyEvent()
         {
             DateTime time = DateTime.Now;
@@ -62,11 +63,15 @@ namespace MenuMaster
                 time, time.AddHours(1));
         }
 
+        // Save user data (currently just the ID of the MenuMaster meal calendar) in a plaintext file
         public void save()
         {
             File.WriteAllText("userdata.txt", planCalendarID);
         }
 
+        // Load user data (currently just the ID of the MenuMaster meal calendar) from a plaintext file. The ID is
+        // the unique identifier given by Google when the calendar was created. If we didn't save it, we'd have to
+        // search for it every time the program started up, which takes a bit of calculation and several REST requests
         public bool load()
         {
             if (File.Exists("userdata.txt"))
